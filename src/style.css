@@ -1,0 +1,310 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+/* ===
+   ROOT
+=== */
+
+:root {
+  --text: #000000;
+  --text-h: #e62a32;
+  --bg: #ffffff;
+
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(0, 0, 0, 0.5);
+
+  --sans: "Montserrat", system-ui, -apple-system, sans-serif;
+  --heading: "Montserrat Black", system-ui, -apple-system, sans-serif;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+
+  background: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* ===
+   GLOBAL
+=== */
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+h1 {
+  font-weight: 700;
+  margin: 0 0.5rem;
+
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+
+h2 {
+  color: #a51919;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  color: #a51919;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* ===
+   HEADER
+=== */
+
+.header {
+  @apply w-full p-5;
+}
+
+.header__container {
+  @apply flex h-12 w-full;
+}
+
+.header__heading {
+  @apply flex flex-col justify-center text-5xl;
+}
+
+.header__title {
+  @apply leading-normal;
+}
+
+/* ===
+   APP LAYOUT
+=== */
+
+.app {
+  @apply min-h-screen flex flex-col items-center;
+}
+
+.app-layout {
+  @apply flex w-full max-w-5xl mx-auto mt-6 px-1 items-center;
+}
+.app-sidebar {
+  @apply flex w-3/5 flex-col gap-3;
+}
+
+.game-board {
+  @apply relative w-full max-w-md;
+}
+
+.overlay {
+  @apply fixed inset-0 z-190 bg-black/50;
+}
+
+/* ===
+   SIDE BAR
+=== */
+
+.instruction {
+  @apply gap-0;
+}
+
+.how-to {
+  @apply font-semibold text-base/8 mt-3;
+}
+
+.steps {
+  @apply w-md list-decimal whitespace-pre-line text-xs/4 gap-0;
+}
+
+.btn-label {
+  @apply text-sm  mt-4;
+}
+
+.label {
+  @apply flex flex-col gap-2;
+}
+
+/* ===
+   GAME BOARD
+=== */
+
+.game-board--hidden {
+  @apply invisible;
+}
+
+.card-grid {
+  @apply grid gap-3 rounded-lg;
+}
+
+/* ===
+   BOARD LOADER
+=== */
+
+.board-loader {
+  @apply absolute inset-0 flex h-full w-full items-center justify-center;
+}
+
+.board-loader-spinner {
+  @apply size-24 animate-spin rounded-full border-6 border-[#5c3463]/20 border-t-[#5c3463];
+}
+
+/* ===
+   CARDS
+=== */
+
+.card {
+  @apply relative aspect-square w-full cursor-pointer;
+
+  perspective: 1000px;
+}
+
+.card--locked {
+  @apply rounded-lg outline-4 outline-black;
+}
+
+.card--correct {
+  @apply rounded-lg outline-4 outline-green-500 z-100;
+}
+
+.card--incorrect {
+  @apply rounded-lg opacity-50 outline-4 outline-gray-500 z-100 cursor-default;
+}
+
+.card__inner {
+  @apply absolute inset-0 transition-transform duration-700;
+
+  transform-style: preserve-3d;
+}
+
+.card__inner--flipped {
+  transform: rotateY(180deg);
+}
+
+.card__inner--pre {
+  transform: rotateY(90deg);
+}
+
+.card--parity .card__inner--pre {
+  transform: rotateY(90deg);
+}
+
+.card__front,
+.card__back,
+.card__question {
+  @apply absolute inset-0 flex items-center justify-center rounded-lg text-2xl font-semibold text-white;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card__front {
+  background-color: #5c3463;
+}
+
+.card__back {
+  background-color: #a51919;
+  transform: rotateY(180deg);
+}
+
+.card__question {
+  background-color: #948e8e;
+  z-index: 1;
+}
+
+/* ===
+   BUTTONS
+=== */
+
+.btn {
+  @apply w-1/3 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-white;
+}
+
+.btn-info {
+  @apply bg-[#5c3463] hover:bg-[#8b5a93];
+}
+
+.btn-full {
+  @apply mb-3 w-full;
+}
+
+.btn-primary {
+  @apply bg-[#a51919]
+         hover:bg-[#630e0e]
+         disabled:cursor-not-allowed
+         disabled:opacity-50
+         disabled:hover:bg-[#a51919];
+}
+
+/* ===
+   MODAL
+=== */
+
+.modal {
+  @apply fixed top-1/2 left-1/2
+         -translate-x-1/2 -translate-y-1/2
+         z-200 bg-white
+         flex flex-col justify-center items-center
+         text-sm text-black
+         shadow-xl border-4 rounded-4xl;
+}
+
+.modal-info {
+  @apply w-2/5 border-gray-700;
+}
+
+.modal-win {
+  @apply w-1/5 min-h-32 border-green-500 gap-3;
+}
+
+.modal__title {
+  @apply p-2 text-center;
+}
+
+.modal__content {
+  @apply mx-8 px-3 pb-3 text-center leading-6 whitespace-pre-line;
+}
+
+.modal__actions {
+  @apply flex justify-center;
+}
+
+/* ===
+   FORM ELEMENTS
+=== */
+
+.select {
+  @apply w-1/5 rounded-md px-3 py-2
+        border border-gray-300 bg-white 
+        text-center text-gray-700
+        disabled:cursor-not-allowed
+        disabled:opacity-50;
+
+  text-align-last: center;
+}
+
+.select option {
+  @apply text-center;
+}
+
+/* ===
+   LOGO
+=== */
+
+.logo-container {
+  @apply fixed bottom-4 right-4 z-50;
+
+  width: clamp(80px, 14vw, 180px);
+}
+
+.logo-image {
+  @apply block w-full object-contain;
+
+  height: auto;
+}
