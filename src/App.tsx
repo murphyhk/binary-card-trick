@@ -97,34 +97,36 @@ export default function App() {
             </select>
           </label>
 
-          <button
-            className="btn btn-primary"
-            onClick={startGame}
-            disabled={playDisabled}
-          >
-            Play
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={resetGame}
-            disabled={resetDisabled}
-          >
-            Reset
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={flipCard}
-            disabled={flipDisabled}
-          >
-            Flip!
-          </button>
+          <div className="buttons">
+            <button
+              className="btn btn-primary"
+              onClick={startGame}
+              disabled={playDisabled}
+            >
+              Play
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={resetGame}
+              disabled={resetDisabled}
+            >
+              Reset
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={flipCard}
+              disabled={flipDisabled}
+            >
+              Flip!
+            </button>
 
-          <p className="btn-label">Learning Topics</p>
-          <Button label="Binary" handleClick={() => handleClick("Binary")} />
-          <Button
-            label="Parity Bits"
-            handleClick={() => handleClick("Parity")}
-          />
+            <p className="btn-label">Learning Topics</p>
+            <Button label="Binary" handleClick={() => handleClick("Binary")} />
+            <Button
+              label="Parity Bits"
+              handleClick={() => handleClick("Parity")}
+            />
+          </div>
         </aside>
 
         {isVisible === "Binary" && (
