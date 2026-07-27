@@ -66,7 +66,7 @@ export default function App() {
       <div className="app-layout">
         <aside className="app-sidebar">
           <h2>{Constants.welcome}</h2>
-          <div className="instructions">
+          <label className="instructions">
             <p className="how-to">{Constants.howTo}</p>
             <ul className="steps">
               <li>{Constants.step1}</li>
@@ -78,7 +78,21 @@ export default function App() {
               <li>{Constants.step7}</li>
               <li>{Constants.step8}</li>
             </ul>
-          </div>
+          </label>
+
+          <details className="instructions-mobile">
+            <summary className="how-to">{Constants.howTo}</summary>
+            <ul className="steps">
+              <li>{Constants.step1}</li>
+              <li>{Constants.step2}</li>
+              <li>{Constants.step3}</li>
+              <li>{Constants.step4}</li>
+              <li>{Constants.step5}</li>
+              <li>{Constants.step6}</li>
+              <li>{Constants.step7}</li>
+              <li>{Constants.step8}</li>
+            </ul>
+          </details>
 
           <label className="label">
             <p className="btn-label">Grid Size</p>
@@ -97,7 +111,7 @@ export default function App() {
             </select>
           </label>
 
-          <div className="buttons">
+          <div className="controls-section">
             <button
               className="btn btn-primary"
               onClick={startGame}
@@ -119,7 +133,8 @@ export default function App() {
             >
               Flip!
             </button>
-
+          </div>
+          <div className="topics-desktop">
             <p className="btn-label">Learning Topics</p>
             <Button label="Binary" handleClick={() => handleClick("Binary")} />
             <Button
@@ -170,6 +185,14 @@ export default function App() {
             </div>
           )}
         </main>
+        <div className="topics-mobile">
+          <p className="btn-label">Learning Topics</p>
+          <Button label="Binary" handleClick={() => handleClick("Binary")} />
+          <Button
+            label="Parity Bits"
+            handleClick={() => handleClick("Parity")}
+          />
+        </div>
       </div>
       <Footer />
     </div>

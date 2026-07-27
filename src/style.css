@@ -41,23 +41,15 @@ h3 {
 }
 
 h1 {
-  font-weight: 700;
-  margin: 0 0.5rem;
-  font-size: xxx-large;
+  @apply font-bold mx-2 text-4xl;
 }
 
 h2 {
-  color: #a51919;
-  font-size: 28px;
-  font-weight: 600;
+  @apply text-[#a51919] text-2xl font-semibold;
 }
 
 h3 {
-  color: #a51919;
-  font-size: 22px;
-  font-weight: 500;
-  padding: 0.5rem;
-  text-align: center;
+  @apply text-[#a51919] text-xl font-medium p-2 text-center;
 }
 
 /* ===
@@ -103,13 +95,13 @@ h3 {
   @apply fixed inset-0 z-190 bg-black/50;
 }
 
+.topics-mobile,
+.instructions-mobile {
+  @apply hidden;
+}
 /* ===
    SIDE BAR
 === */
-
-.instruction {
-  @apply gap-0;
-}
 
 .how-to {
   @apply font-semibold text-base/8 mt-3;
@@ -218,7 +210,8 @@ h3 {
    BUTTONS
 === */
 
-.buttons {
+.controls-section,
+.topics-desktop {
   @apply flex flex-col gap-3;
 }
 
@@ -313,8 +306,7 @@ h3 {
 @media (max-width: 768px) {
   /* Typography */
   h1 {
-    @apply text-2xl text-center;
-    margin: 0.5rem 0;
+    @apply text-2xl text-center my-2;
   }
 
   h2 {
@@ -340,11 +332,11 @@ h3 {
   }
 
   .app-layout {
-    @apply flex-col gap-4 mt-0;
+    @apply flex-col mt-0;
   }
 
   .app-sidebar {
-    @apply w-full mt-0 pt-0 m-2 p-2;
+    @apply flex flex-col w-full mt-0 pt-0 m-2 p-2;
   }
 
   .game-board {
@@ -352,12 +344,29 @@ h3 {
   }
 
   /* Buttons */
-  .buttons {
+  .controls-section {
     @apply items-center;
+  }
+
+  .topics-mobile {
+    @apply flex flex-col items-center gap-3 mb-3;
+  }
+
+  .topics-desktop,
+  .instructions {
+    @apply hidden;
+  }
+
+  .instructions-mobile {
+    @apply flex flex-col mb-1;
   }
 
   .btn {
     @apply w-2xs;
+  }
+
+  .btn-label {
+    @apply mt-0;
   }
 
   /* Instructions */

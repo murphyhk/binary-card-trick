@@ -1,6 +1,6 @@
 export const Instructions = {
   welcome: "Welcome!",
-  howTo: "How to play:",
+  howTo: "How to play",
 
   step1: `Choose a board size to set the difficulty.`,
   step2: `Before starting, flip any board cards to create your own binary pattern.`,
