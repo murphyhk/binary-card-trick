@@ -13,8 +13,8 @@
   --accent-bg: rgba(192, 132, 252, 0.15);
   --accent-border: rgba(0, 0, 0, 0.5);
 
-  --sans: "Montserrat", system-ui, -apple-system, sans-serif;
-  --heading: "Montserrat Black", system-ui, -apple-system, sans-serif;
+  --sans: "Montserrat", system-ui;
+  --heading: "Montserrat Black", system-ui;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -32,6 +32,10 @@
 /* ===
    GLOBAL
 === */
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+}
 
 h1,
 h2,
